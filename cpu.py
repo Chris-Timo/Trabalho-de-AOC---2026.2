@@ -2,7 +2,7 @@
 CPU SIMULADA — Código-base
 AOC 2026.2
 
-CPU de 8 bits:bbbggg
+CPU de 8 bits:
 - 4 registradores: R0, R1, R2, R3
 - memória com 16 posições
 - PC (Program Counter)
