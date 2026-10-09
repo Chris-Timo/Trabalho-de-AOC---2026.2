@@ -9,30 +9,24 @@ def limitar_8bits(valor):
     return valor & 0xFF
 
 
-def ula(operacao, a, b=0):
+def ula(operacao, a, b):
     a = limitar_8bits(a)
     b = limitar_8bits(b)
 
     if operacao == "ADD":
-        # IMPLEMENTAR
-        resultado = 0
-
+        resultado = a + b
+        
     elif operacao == "SUB":
-        # IMPLEMENTAR
-        resultado = 0
+        resultado = a - b
 
     elif operacao == "AND":
-        # IMPLEMENTAR
-        resultado = 0
-
+        resultado = a & b
+        
     elif operacao == "OR":
-        # IMPLEMENTAR
-        resultado = 0
+        resultado = a | b
 
     elif operacao == "XOR":
-        # IMPLEMENTAR
-        resultado = 0
-
+        resultado = a ^ b
     else:
         raise ValueError(f"Operação inválida: {operacao}")
 
