@@ -2,7 +2,7 @@
 CPU SIMULADA — Código-base
 AOC 2026.2
 
-CPU de 8 bits:Deu certo 2.0
+CPU de 8 bits:
 - 4 registradores: R0, R1, R2, R3
 - memória com 16 posições
 - PC (Program Counter)
@@ -62,62 +62,109 @@ class CPU:
             self.pc += 1
 
         # ==============================================
-        # STORE — IMPLEMENTAR
+        # STORE — IMPLEMENTADO
         # ==============================================
         # STORE R0, 15
         # MEM[15] <- R0
 
         elif operacao == "STORE":
+            if len(partes) != 3:
+                raise ValueError("Instrução STORE inválida")
+            registrador = partes[1]
+            endereco = int(partes[2])
+            if endereco < 0 or endereco >= len(self.memoria):
+                raise ValueError("Endereço de memória inválido")
 
-            # IMPLEMENTAR
-            pass
+            self.memoria[endereco] = self.registradores[registrador]
+
+            self.pc += 1
 
         # ==============================================
-        # ADD — IMPLEMENTAR
+        # ADD — IMPLEMENTADO
         # ==============================================
         # ADD R0, R1
         # R0 <- R0 + R1
 
         elif operacao == "ADD":
+            registrador_destino = partes[1]
+            registrador_fonte = partes[2]
 
-            # IMPLEMENTAR
-            pass
+            valor_destino = self.registradores[registrador_destino]
+            valor_fonte = self.registradores[registrador_fonte]
+
+            resultado = ula("ADD", valor_destino, valor_fonte)
+
+            self.registradores[registrador_destino] = resultado
+
+            self.pc += 1
 
         # ==============================================
-        # SUB — IMPLEMENTAR
+        # SUB — IMPLEMENTADO
         # ==============================================
 
         elif operacao == "SUB":
 
-            # IMPLEMENTAR
-            pass
+            registrador_destino = partes[1]
+            registrador_fonte = partes[2]
+
+            valor_destino = self.registradores[registrador_destino]
+            valor_fonte = self.registradores[registrador_fonte]
+
+            resultado = ula("SUB", valor_destino, valor_fonte)
+
+            self.registradores[registrador_destino] = resultado
+
+            self.pc += 1
 
         # ==============================================
-        # AND — IMPLEMENTAR
+        # AND — IMPLEMENTADO
         # ==============================================
 
         elif operacao == "AND":
 
-            # IMPLEMENTAR
-            pass
+            registrador_destino = partes[1]
+            registrador_fonte = partes[2]
+
+            valor_destino = self.registradores[registrador_destino]
+            valor_fonte = self.registradores[registrador_fonte]
+
+            resultado = ula("AND", valor_destino, valor_fonte)
+
+            self.registradores[registrador_destino] = resultado
+
+            self.pc += 1
 
         # ==============================================
-        # OR — IMPLEMENTAR
+        # OR — IMPLEMENTADO
         # ==============================================
 
         elif operacao == "OR":
+            registrador_destino = partes[1]
+            registrador_fonte = partes[2]
 
-            # IMPLEMENTAR
-            pass
+            valor_destino = self.registradores[registrador_destino]
+            valor_fonte = self.registradores[registrador_fonte]
+            resultado = ula("OR", valor_destino, valor_fonte)
+
+            self.registradores[registrador_destino] = resultado
+            self.pc += 1
 
         # ==============================================
-        # XOR — IMPLEMENTAR
+        # XOR — IMPLEMENTADO 
         # ==============================================
 
         elif operacao == "XOR":
+            registrador_destino = partes[1]
+            registrador_fonte = partes[2]
 
-            # IMPLEMENTAR
-            pass
+            valor_destino = self.registradores[registrador_destino]
+            valor_fonte = self.registradores[registrador_fonte]
+
+            resultado = ula("XOR", valor_destino, valor_fonte)
+
+            self.registradores[registrador_destino] = resultado
+
+            self.pc += 1
 
         # ==============================================
         # JMP — IMPLEMENTADO
